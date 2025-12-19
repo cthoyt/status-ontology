@@ -1,0 +1,89 @@
+format-version: 1.2
+ontology: statuso
+
+[Term]
+id: STATUSO:0000001
+name: project
+xref: http://usefulinc.com/ns/doap#Project
+
+[Term]
+id: STATUSO:0000002
+name: project by responsiveness
+is_a: STATUSO:0000001 ! project
+
+[Term]
+id: STATUSO:0000003
+name: project that is responsive
+is_a: STATUSO:0000002 ! project by responsiveness
+disjoint_from: STATUSO:0000004 ! project that is not responsive
+
+[Term]
+id: STATUSO:0000004
+name: project that is not responsive
+is_a: STATUSO:0000002 ! project by responsiveness
+
+[Term]
+id: STATUSO:0000005
+name: project by contact transparency
+is_a: STATUSO:0000001 ! project
+
+[Term]
+id: STATUSO:0000006
+name: project with transparent contact
+is_a: STATUSO:0000005 ! project by responsiveness
+disjoint_from: STATUSO:0000007 ! project that is not responsive
+
+[Term]
+id: STATUSO:0000007
+name: project without transparent contact
+is_a: STATUSO:0000005 ! project by responsiveness
+
+[Term]
+id: STATUSO:0000008
+name: project by activity
+is_a: STATUSO:0000001 ! project
+
+[Term]
+id: STATUSO:0000009
+name: project is actively developed
+is_a: STATUSO:0000008 ! project by responsiveness
+disjoint_from: STATUSO:0000010 ! project that is not responsive
+
+[Term]
+id: STATUSO:0000010
+name: project is not actively developed
+is_a: STATUSO:0000008 ! project by responsiveness
+
+[Term]
+id: STATUSO:0000011
+name: project by high-level classification
+is_a: STATUSO:0000001 ! project
+
+[Term]
+id: STATUSO:0000012
+name: active project
+is_a: STATUSO:0000009
+is_a: STATUSO:0000003
+is_a: STATUSO:0000011 ! project
+
+[Term]
+id: STATUSO:0000013
+name: inactive project
+is_a: STATUSO:0000010
+is_a: STATUSO:0000003
+is_a: STATUSO:0000011 ! project
+
+[Term]
+id: STATUSO:0000014
+name: orphaned project
+is_a: STATUSO:0000004
+is_a:STATUSO:0000010
+is_a: STATUSO:0000011 ! project
+
+
+[Term]
+id: STATUSO:0000015
+name: unresponsive project
+is_a: STATUSO:0000004
+is_a:STATUSO:0000009
+is_a: STATUSO:0000011 ! project
