@@ -1,9 +1,11 @@
 format-version: 1.2
 idspace: dcterms http://purl.org/dc/terms/ 
 idspace: orcid https://orcid.org/ 
+idspace: spdx https://spdx.org/licenses/
 ontology: statuso
 property_value: dcterms:creator orcid:0000-0003-4423-4370
 property_value: dcterms:description "An ontology for the many axes by which a project (whether software, data, etc.) can be judged." xsd:string
+property_value: dcterms:license spdx:CC-BY-4.0
 property_value: dcterms:title "Project Status Ontology" xsd:string
 property_value: IAO:0000700 STATUSO:0000001
 property_value: IAO:0000700 STATUSO:0000016
