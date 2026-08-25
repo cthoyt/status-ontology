@@ -4,9 +4,11 @@ idspace: IAO http://purl.obolibrary.org/obo/IAO_
 idspace: orcid https://orcid.org/
 ontology: statuso
 property_value: IAO:0000700 STATUSO:0000001
+property_value: IAO:0000700 STATUSO:0000016
 property_value: dcterms:title "Project Status Ontology" xsd:string
 property_value: dcterms:description "An ontology for the many axes by which a project (whether software, data, etc.) can be judged." xsd:string
 property_value: dcterms:creator orcid:0000-0003-4423-4370
+property_value: rdfs:seeAlso "https://explorism.net/2024/12/04/open-source-activity-check/" xsd:anyURI
 
 [Typedef]
 id: IAO:0000700
@@ -42,7 +44,10 @@ is_a: STATUSO:0000001 ! project
 [Term]
 id: STATUSO:0000006
 name: project with transparent contact
+def: "A project whose responsible person can both be identified (e.g., with a persistent identifier) and contacted (e.g., via email, GitHub)"
 is_a: STATUSO:0000005 ! project by contact transparency
+intersection_of: STATUSO:0000020 ! project with a dereferencable maintainer
+intersection_of: STATUSO:0000023 ! project with a contactable maintainer
 disjoint_from: STATUSO:0000007 ! project without transparent contact
 
 [Term]
@@ -52,19 +57,19 @@ is_a: STATUSO:0000005 ! project by contact transparency
 
 [Term]
 id: STATUSO:0000008
-name: project by activity
-is_a: STATUSO:0000001 ! project
+name: project by development activity
+is_a: STATUSO:0000028 ! project by activity
 
 [Term]
 id: STATUSO:0000009
 name: project is actively developed
-is_a: STATUSO:0000008 ! project by activity
+is_a: STATUSO:0000008 ! project by development activity
 disjoint_from: STATUSO:0000010 ! project is not actively developed
 
 [Term]
 id: STATUSO:0000010
 name: project is not actively developed
-is_a: STATUSO:0000008 ! project by activity
+is_a: STATUSO:0000008 ! project by development activity
 
 [Term]
 id: STATUSO:0000011
@@ -74,27 +79,112 @@ is_a: STATUSO:0000001 ! project
 [Term]
 id: STATUSO:0000012
 name: active project
-is_a: STATUSO:0000003 ! project that is responsive
-is_a: STATUSO:0000009 ! project is actively developed
+intersection_of: STATUSO:0000003 ! project that is responsive
+intersection_of: STATUSO:0000009 ! project is actively developed
 is_a: STATUSO:0000011 ! project by high-level classification
 
 [Term]
 id: STATUSO:0000013
 name: inactive project
-is_a: STATUSO:0000003 ! project that is responsive
-is_a: STATUSO:0000010 ! project is not actively developed
+intersection_of: STATUSO:0000003 ! project that is responsive
+intersection_of: STATUSO:0000010 ! project is not actively developed
 is_a: STATUSO:0000011 ! project by high-level classification
 
 [Term]
 id: STATUSO:0000014
 name: orphaned project
-is_a: STATUSO:0000004 ! project that is not responsive
-is_a: STATUSO:0000010 ! project is not actively developed
+intersection_of: STATUSO:0000004 ! project that is not responsive
+intersection_of: STATUSO:0000010 ! project is not actively developed
 is_a: STATUSO:0000011 ! project by high-level classification
 
 [Term]
 id: STATUSO:0000015
 name: unresponsive project
-is_a: STATUSO:0000004 ! project that is not responsive
-is_a: STATUSO:0000009 ! project is actively developed
+intersection_of: STATUSO:0000004 ! project that is not responsive
+intersection_of: STATUSO:0000009 ! project is actively developed
 is_a: STATUSO:0000011 ! project by high-level classification
+
+[Term]
+id: STATUSO:0000016
+name: measurement of activity
+
+[Term]
+id: STATUSO:0000017
+name: measurement of activity by most recent update
+is_a: STATUSO:0000016 ! measurement of activity
+
+[Term]
+id: STATUSO:0000018
+name: measurement of activity by most recent commit to repository
+is_a: STATUSO:0000017 ! measurement of activity by most recent update
+
+[Term]
+id: STATUSO:0000019
+name: project by maintainer dereferencability
+is_a: STATUSO:0000001 ! project
+
+[Term]
+id: STATUSO:0000020
+name: project with a dereferencable maintainer
+def: "A project whose responsible person can both be identified (e.g., with a persistent identifier). A project that only lists the name of the responsible person is not sufficient."
+is_a: STATUSO:0000019 ! project by maintainer dereferencability
+disjoint_from: STATUSO:0000021
+
+[Term]
+id: STATUSO:0000021
+name: project without a dereferencable maintainer
+def: "A project whose responsible person can not both be identified (e.g., with a persistent identifier)."
+is_a: STATUSO:0000019 ! project by maintainer dereferencability
+
+[Term]
+id: STATUSO:0000022
+name: project by maintainer contactability
+is_a: STATUSO:0000001 ! project
+
+[Term]
+id: STATUSO:0000023
+name: project with a contactable maintainer
+def: "A project whose responsible person can both be contacted (e.g., by email or GitHub)."
+is_a: STATUSO:0000022 ! project by maintainer contactability
+disjoint_from: STATUSO:0000024
+
+[Term]
+id: STATUSO:0000024
+name: project without a contactable maintainer
+is_a: STATUSO:0000022 ! project by maintainer contactability
+
+[Term]
+id: STATUSO:0000025
+name: project by release activity
+is_a: STATUSO:0000028 ! project by activity
+
+[Term]
+id: STATUSO:0000026
+name: project with a recent release
+is_a: STATUSO:0000025 ! project by release activity
+disjoint_from: STATUSO:0000027
+
+[Term]
+id: STATUSO:0000027
+name: project without a recent release
+is_a: STATUSO:0000025 ! project by release activity
+
+[Term]
+id: STATUSO:0000028
+name: project by activity
+is_a: STATUSO:0000001 ! project
+
+[Term]
+id: STATUSO:0000029
+name: project by usage of generative artificial intelligence
+is_a: STATUSO:0000001 ! project
+
+[Term]
+id: STATUSO:0000030
+name: project that uses generative artificial intelligence
+is_a: STATUSO:0000029 ! project by usage of generative artificial intelligence
+
+[Term]
+id: STATUSO:0000031
+name: project that does not use generative artificial intelligence
+is_a: STATUSO:0000029 ! project by usage of generative artificial intelligence
