@@ -1,5 +1,17 @@
 format-version: 1.2
+idspace: dcterms http://purl.org/dc/terms/
+idspace: IAO http://purl.obolibrary.org/obo/IAO_
+idspace: orcid https://orcid.org/
 ontology: statuso
+property_value: IAO:0000700 STATUSO:0000001
+property_value: dcterms:title "Project Status Ontology" xsd:string
+property_value: dcterms:description "An ontology for the many axes by which a project (whether software, data, etc.) can be judged." xsd:string
+property_value: dcterms:creator orcid:0000-0003-4423-4370
+
+[Typedef]
+id: IAO:0000700
+name: has ontology root term
+is_metadata_tag: true
 
 [Term]
 id: STATUSO:0000001
@@ -30,13 +42,13 @@ is_a: STATUSO:0000001 ! project
 [Term]
 id: STATUSO:0000006
 name: project with transparent contact
-is_a: STATUSO:0000005 ! project by responsiveness
-disjoint_from: STATUSO:0000007 ! project that is not responsive
+is_a: STATUSO:0000005 ! project by contact transparency
+disjoint_from: STATUSO:0000007 ! project without transparent contact
 
 [Term]
 id: STATUSO:0000007
 name: project without transparent contact
-is_a: STATUSO:0000005 ! project by responsiveness
+is_a: STATUSO:0000005 ! project by contact transparency
 
 [Term]
 id: STATUSO:0000008
@@ -46,13 +58,13 @@ is_a: STATUSO:0000001 ! project
 [Term]
 id: STATUSO:0000009
 name: project is actively developed
-is_a: STATUSO:0000008 ! project by responsiveness
-disjoint_from: STATUSO:0000010 ! project that is not responsive
+is_a: STATUSO:0000008 ! project by activity
+disjoint_from: STATUSO:0000010 ! project is not actively developed
 
 [Term]
 id: STATUSO:0000010
 name: project is not actively developed
-is_a: STATUSO:0000008 ! project by responsiveness
+is_a: STATUSO:0000008 ! project by activity
 
 [Term]
 id: STATUSO:0000011
@@ -62,28 +74,27 @@ is_a: STATUSO:0000001 ! project
 [Term]
 id: STATUSO:0000012
 name: active project
-is_a: STATUSO:0000009
-is_a: STATUSO:0000003
-is_a: STATUSO:0000011 ! project
+is_a: STATUSO:0000003 ! project that is responsive
+is_a: STATUSO:0000009 ! project is actively developed
+is_a: STATUSO:0000011 ! project by high-level classification
 
 [Term]
 id: STATUSO:0000013
 name: inactive project
-is_a: STATUSO:0000010
-is_a: STATUSO:0000003
-is_a: STATUSO:0000011 ! project
+is_a: STATUSO:0000003 ! project that is responsive
+is_a: STATUSO:0000010 ! project is not actively developed
+is_a: STATUSO:0000011 ! project by high-level classification
 
 [Term]
 id: STATUSO:0000014
 name: orphaned project
-is_a: STATUSO:0000004
-is_a:STATUSO:0000010
-is_a: STATUSO:0000011 ! project
-
+is_a: STATUSO:0000004 ! project that is not responsive
+is_a: STATUSO:0000010 ! project is not actively developed
+is_a: STATUSO:0000011 ! project by high-level classification
 
 [Term]
 id: STATUSO:0000015
 name: unresponsive project
-is_a: STATUSO:0000004
-is_a:STATUSO:0000009
-is_a: STATUSO:0000011 ! project
+is_a: STATUSO:0000004 ! project that is not responsive
+is_a: STATUSO:0000009 ! project is actively developed
+is_a: STATUSO:0000011 ! project by high-level classification
