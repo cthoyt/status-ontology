@@ -11,6 +11,8 @@ property_value: IAO:0000700 STATUSO:0000001
 property_value: IAO:0000700 STATUSO:0000016
 property_value: seeAlso "https://explorism.net/2024/12/04/open-source-activity-check/" xsd:anyURI
 property_value: seeAlso "https://obofoundry.org/docs/OntologyStatus.html" xsd:anyURI
+property_value: seeAlso "https://christosgalano.github.io/stale-repos-identifier/" xsd:anyURI
+property_value: seeAlso "https://www.repostatus.org/" xsd:anyURI
 
 [Term]
 id: STATUSO:0000001
