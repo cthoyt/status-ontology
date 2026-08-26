@@ -265,6 +265,58 @@ id: STATUSO:0000046
 name: project that does not accept external pull requests
 is_a: STATUSO:0000044 ! project by disposition to external pull requests
 
+[Term]
+id: STATUSO:0000047
+name: project by existence of a public issue tracker
+is_a: STATUSO:0000001 ! project
+
+[Term]
+id: STATUSO:0000048
+name: project with a public issue tracker
+is_a: STATUSO:0000047 ! project by existence of a public issue tracker
+disjoint_from: STATUSO:0000049 ! project without a public issue tracker
+
+[Term]
+id: STATUSO:0000049
+name: project without a public issue tracker
+is_a: STATUSO:0000047 ! project by existence of a public issue tracker
+
+[Term]
+id: STATUSO:0000050
+name: project by existence of a private issue tracker
+is_a: STATUSO:0000001 ! project
+
+[Term]
+id: STATUSO:0000051
+name: project with a private issue tracker
+is_a: STATUSO:0000050 ! project by existence of a private issue tracker
+disjoint_from: STATUSO:0000052 ! project without a private issue tracker
+
+[Term]
+id: STATUSO:0000052
+name: project without a private issue tracker
+is_a: STATUSO:0000050 ! project by existence of a private issue tracker
+
+[Term]
+id: STATUSO:0000053
+name: project by obsolescence
+is_a: STATUSO:0000001 ! project
+
+[Term]
+id: STATUSO:0000054
+name: project that is not obsolete
+is_a: STATUSO:0000053 ! project by obsolescence
+disjoint_from: STATUSO:0000055 ! project that is obsolete
+
+[Term]
+id: STATUSO:0000055
+name: project that is obsolete
+is_a: STATUSO:0000053 ! project by obsolescence
+
+[Term]
+id: spdx:CC-BY-4.0
+name: CC-BY 4.0
+
 [Typedef]
 id: IAO:0000116
 name: editor note
